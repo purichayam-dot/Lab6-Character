@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Showcase.gd" id="1_aseyg"]
+[ext_resource type="Texture2D" path="res://Assets/Art/background.png" id="2_8jndd"]
+[ext_resource type="PackedScene" path="res://Scenes/Character.tscn" id="3_4df82"]
+[ext_resource type="Script" path="res://Scripts/Character.gd" id="4_tyx5p"]
+
+[node name="Showcase" type="Node2D" unique_id=1130965114]
+script = ExtResource("1_aseyg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1312387876]
+texture = ExtResource("2_8jndd")
+centered = false
+
+[node name="Gallery" type="Node2D" parent="." unique_id=2116510293]
+
+[node name="Stand" type="Node2D" parent="Gallery" unique_id=2147199852 instance=ExtResource("3_4df82")]
+position = Vector2(115, 640)
+scale = Vector2(0.38, 0.38)
+script = ExtResource("4_tyx5p")
+
+[node name="Walk" type="Node2D" parent="Gallery" unique_id=1242620407 instance=ExtResource("3_4df82")]
+position = Vector2(355, 640)
+scale = Vector2(0.38, 0.38)
+script = ExtResource("4_tyx5p")
+
+[node name="Jump" type="Node2D" parent="Gallery" unique_id=48017575 instance=ExtResource("3_4df82")]
+position = Vector2(595, 640)
+scale = Vector2(0.38, 0.38)
+script = ExtResource("4_tyx5p")
+
+[node name="Punch" type="Node2D" parent="Gallery" unique_id=179740521 instance=ExtResource("3_4df82")]
+position = Vector2(835, 640)
+scale = Vector2(0.38, 0.38)
+script = ExtResource("4_tyx5p")
+
+[node name="Die" type="Node2D" parent="Gallery" unique_id=837138059 instance=ExtResource("3_4df82")]
+position = Vector2(1150, 640)
+scale = Vector2(0.38, 0.38)
+script = ExtResource("4_tyx5p")
+
+[node name="Solo" type="Node2D" parent="." unique_id=2023323924 instance=ExtResource("3_4df82")]
+position = Vector2(640, 640)
+scale = Vector2(0.62, 0.62)
+script = ExtResource("4_tyx5p")
