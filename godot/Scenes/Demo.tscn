@@ -1,0 +1,217 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Demo.gd" id="1_fnnck"]
+[ext_resource type="PackedScene" path="res://Assets/Props/torii.glb" id="2_ecetj"]
+[ext_resource type="PackedScene" path="res://Assets/Props/sakura_tree.glb" id="3_oilx1"]
+[ext_resource type="PackedScene" path="res://Assets/Props/bush.glb" id="4_4i7ud"]
+[ext_resource type="PackedScene" path="res://Assets/Props/stone_lamp.glb" id="5_ymvx6"]
+[ext_resource type="Script" path="res://Scripts/PlayerCharacter.gd" id="6_v3boh"]
+[ext_resource type="PackedScene" path="res://Assets/Character/Purichaya.glb" id="7_h3puh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k27g2"]
+sky_top_color = Color(0.42, 0.55, 0.92, 1)
+sky_horizon_color = Color(1, 0.8, 0.85, 1)
+ground_bottom_color = Color(0.5, 0.45, 0.6, 1)
+ground_horizon_color = Color(1, 0.8, 0.85, 1)
+
+[sub_resource type="Sky" id="Sky_6aqh6"]
+sky_material = SubResource("ProceduralSkyMaterial_k27g2")
+
+[sub_resource type="Environment" id="Environment_oxmns"]
+background_mode = 2
+sky = SubResource("Sky_6aqh6")
+ambient_light_source = 3
+ambient_light_energy = 0.7
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.5
+fog_enabled = true
+fog_light_color = Color(1, 0.85, 0.9, 1)
+fog_density = 0.004
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shrlo"]
+albedo_color = Color(0.98, 0.78, 0.86, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k83kh"]
+top_radius = 4.0
+bottom_radius = 4.2
+height = 0.3
+radial_segments = 24
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gsi8"]
+albedo_color = Color(0.55, 0.42, 0.6, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m01cq"]
+top_radius = 4.2
+bottom_radius = 3.6
+height = 0.6
+radial_segments = 24
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxpmw"]
+albedo_color = Color(1, 0.92, 0.95, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oolyx"]
+top_radius = 3.2
+bottom_radius = 3.2
+height = 0.02
+radial_segments = 24
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd530"]
+albedo_color = Color(0.98, 0.78, 0.86, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_emj36"]
+top_radius = 2.9
+bottom_radius = 2.9
+height = 0.03
+radial_segments = 24
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bghi"]
+albedo_color = Color(0.6, 0.82, 0.55, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d03iv"]
+top_radius = 60.0
+bottom_radius = 60.0
+height = 0.2
+radial_segments = 32
+rings = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swxg5"]
+size = Vector3(120, 1, 120)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pwg1e"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ienap"]
+cull_mode = 2
+albedo_color = Color(1, 0.75, 0.85, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_e3lie"]
+material = SubResource("StandardMaterial3D_ienap")
+size = Vector2(0.12, 0.12)
+
+[node name="Demo" type="Node3D" unique_id=1445892678]
+script = ExtResource("1_fnnck")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1393604327]
+environment = SubResource("Environment_oxmns")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=806015979]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 0, 0)
+light_color = Color(1, 0.95, 0.88, 1)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Stage" type="Node3D" parent="." unique_id=2125637261]
+
+[node name="StageTop" type="MeshInstance3D" parent="Stage" unique_id=627708613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+material_override = SubResource("StandardMaterial3D_shrlo")
+mesh = SubResource("CylinderMesh_k83kh")
+
+[node name="StageBase" type="MeshInstance3D" parent="Stage" unique_id=535494097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+material_override = SubResource("StandardMaterial3D_3gsi8")
+mesh = SubResource("CylinderMesh_m01cq")
+
+[node name="Ring" type="MeshInstance3D" parent="Stage" unique_id=1577058665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
+material_override = SubResource("StandardMaterial3D_vxpmw")
+mesh = SubResource("CylinderMesh_oolyx")
+
+[node name="RingInner" type="MeshInstance3D" parent="Stage" unique_id=730055788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+material_override = SubResource("StandardMaterial3D_wd530")
+mesh = SubResource("CylinderMesh_emj36")
+
+[node name="Ground" type="MeshInstance3D" parent="Stage" unique_id=1812850554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+material_override = SubResource("StandardMaterial3D_1bghi")
+mesh = SubResource("CylinderMesh_d03iv")
+
+[node name="Floor" type="StaticBody3D" parent="Stage" unique_id=265673073]
+
+[node name="@CollisionShape3D@2" type="CollisionShape3D" parent="Stage/Floor" unique_id=1999966503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_swxg5")
+
+[node name="Torii" type="Node3D" parent="Stage" unique_id=1060908317 instance=ExtResource("2_ecetj")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, -3.2)
+
+[node name="sakura_tree" type="Node3D" parent="Stage" unique_id=1031355239 instance=ExtResource("3_oilx1")]
+transform = Transform3D(0.04330127, 0, 0.025, 0, 0.05, 0, -0.025, 0, 0.04330127, -6, -0.85, -4)
+
+[node name="@Node3D@3" type="Node3D" parent="Stage" unique_id=1149604848 instance=ExtResource("3_oilx1")]
+transform = Transform3D(-0.034472, 0, 0.028925445, 0, 0.045, 0, -0.028925445, 0, -0.034472, 6.5, -0.85, -3)
+
+[node name="@Node3D@4" type="Node3D" parent="Stage" unique_id=489734591 instance=ExtResource("3_oilx1")]
+transform = Transform3D(-0.038302224, 0, -0.03213938, 0, 0.05, 0, 0.03213938, 0, -0.038302224, -8, -0.85, 4)
+
+[node name="@Node3D@5" type="Node3D" parent="Stage" unique_id=567219809 instance=ExtResource("3_oilx1")]
+transform = Transform3D(0.019999996, 0, -0.034641016, 0, 0.04, 0, 0.034641016, 0, 0.019999996, 8, -0.85, 5)
+
+[node name="@Node3D@6" type="Node3D" parent="Stage" unique_id=2056562532 instance=ExtResource("3_oilx1")]
+transform = Transform3D(-2.6226832e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, -2.6226832e-09, 0, -0.85, -10)
+
+[node name="Root Scene" type="Node3D" parent="Stage" unique_id=2017721973 instance=ExtResource("4_4i7ud")]
+transform = Transform3D(0.8446994, 0, 0.31061703, 0, 0.9, 0, -0.31061703, 0, 0.8446994, -3.3, 0, 1.6)
+
+[node name="@Node3D@7" type="Node3D" parent="Stage" unique_id=1146266819 instance=ExtResource("4_4i7ud")]
+transform = Transform3D(-0.8705592, 0, -0.22831272, 0, 0.9, 0, 0.22831272, 0, -0.8705592, 3.4, 0, 1.2)
+
+[node name="@Node3D@8" type="Node3D" parent="Stage" unique_id=1962514978 instance=ExtResource("4_4i7ud")]
+transform = Transform3D(0.49014643, 0, 0.7548221, 0, 0.9, 0, -0.7548221, 0, 0.49014643, -2.6, 0, -2.4)
+
+[node name="@Node3D@9" type="Node3D" parent="Stage" unique_id=484530121 instance=ExtResource("4_4i7ud")]
+transform = Transform3D(0.52136266, 0, 0.7336082, 0, 0.9, 0, -0.7336082, 0, 0.52136266, 2.8, 0, -2.2)
+
+[node name="stone_lamp" type="Node3D" parent="Stage" unique_id=903475635 instance=ExtResource("5_ymvx6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.4, 1.095, -0.4)
+
+[node name="@Node3D@10" type="Node3D" parent="Stage" unique_id=861419416 instance=ExtResource("5_ymvx6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.4, 1.095, -0.4)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1160193107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+script = ExtResource("6_v3boh")
+
+[node name="@CollisionShape3D@11" type="CollisionShape3D" parent="Player" unique_id=1027011263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_pwg1e")
+
+[node name="Model" type="Node3D" parent="Player" unique_id=2101718702 instance=ExtResource("7_h3puh")]
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=194113028]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, 0.2079117, 0, -0.2079117, 0.9781476, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=837652341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 4.2)
+current = true
+fov = 50.0
+
+[node name="Petals" type="CPUParticles3D" parent="." unique_id=178358584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+amount = 120
+lifetime = 9.0
+preprocess = 9.0
+mesh = SubResource("QuadMesh_e3lie")
+emission_shape = 3
+emission_box_extents = Vector3(9, 1, 9)
+gravity = Vector3(0.2, -0.9, 0)
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_max = 360.0
