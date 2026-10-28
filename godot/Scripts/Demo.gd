@@ -148,7 +148,7 @@ func _build_ui():
 	title.position = Vector2(28, 18)
 	root.add_child(title)
 	title.add_child(_lbl("Lab 6 · ตัวละคร 3D จาก Blender + Mixamo", 30, true, Color(1, 0.85, 0.92)))
-	title.add_child(_lbl("ภูริชญา โมรานะ  •  Godot 4.7  •  Mixamo BoneMap + MeleeLib / ShooterLib", 17, false))
+	title.add_child(_lbl("ภูริชญา โมรา  •  Godot 4.7  •  Mixamo BoneMap + MeleeLib / ShooterLib", 17, false))
 
 	current_label = _lbl("", 34, true, Color(1, 0.95, 0.6))
 	current_label.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
